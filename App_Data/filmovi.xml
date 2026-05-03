@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<filmovi>
+  <film>
+    <id>1</id>
+    <naz>The Dark Knight</naz>
+    <zanr>Akcija</zanr>
+    <god>2008</god>
+    <oc>9.0</oc>
+    <opis>Betmen se suprotstavlja Dzokeru u Gotamu.</opis>
+    <img>https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg</img>
+    <tip>film</tip>
+  </film>
+  <film>
+    <id>2</id>
+    <naz>Breaking Bad</naz>
+    <zanr>Drama</zanr>
+    <god>2008</god>
+    <oc>9.5</oc>
+    <opis>Profesor hemije ulazi u opasan svet kriminala.</opis>
+    <img>https://image.tmdb.org/t/p/w500/3xnWaLQjelJDDF7LT1WBo6f4BRe.jpg</img>
+    <tip>serija</tip>
+  </film>
+  <film>
+    <id>3</id>
+    <naz>Inception</naz>
+    <zanr>Sci-Fi</zanr>
+    <god>2010</god>
+    <oc>8.8</oc>
+    <opis>Tim ulazi u snove kako bi izvrsio skoro nemoguc zadatak.</opis>
+    <img>https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg</img>
+    <tip>film</tip>
+  </film>
+  <film>
+    <id>4</id>
+    <naz>Stranger Things</naz>
+    <zanr>Fantazija</zanr>
+    <god>2016</god>
+    <oc>8.7</oc>
+    <opis>Deca iz malog grada otkrivaju tajne eksperimente i drugi svet.</opis>
+    <img>https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg</img>
+    <tip>serija</tip>
+  </film>
+</filmovi>
