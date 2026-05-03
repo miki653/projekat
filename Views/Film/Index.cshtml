@@ -1,0 +1,92 @@
+﻿@model List<Film>
+@{
+    ViewData["Title"] = "Filmovi";
+    var zanrovi = ViewBag.zanrovi as List<string> ?? new List<string>();
+    int p = ViewBag.p ?? 1;
+    int ukupno = ViewBag.ukupno ?? 0;
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <h1 class="h2 mb-0">Filmovi i serije</h1>
+    <div class="d-flex gap-2">
+        <a class="btn btn-outline-light btn-sm" asp-action="ExportXml">Export XML</a>
+        <a class="btn btn-outline-light btn-sm" asp-action="ExportJson">Export JSON</a>
+        @if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <a class="btn btn-danger btn-sm" asp-action="Create">Dodaj</a>
+        }
+    </div>
+</div>
+
+<form method="get" class="row g-2 mb-4">
+    <div class="col-md-4">
+        <input class="form-control" name="q" value="@ViewBag.q" placeholder="Pretraga po nazivu" />
+    </div>
+    <div class="col-md-3">
+        <select class="form-select" name="zanr">
+            <option value="">Svi zanrovi</option>
+            @foreach (var z in zanrovi)
+            {
+                <option value="@z" selected="@(ViewBag.zanr == z)">@z</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-3">
+        <select class="form-select" name="sort">
+            <option value="">Naziv A-Z</option>
+            <option value="god_asc" selected="@(ViewBag.sort == "god_asc")">Godina rastuce</option>
+            <option value="god_desc" selected="@(ViewBag.sort == "god_desc")">Godina opadajuce</option>
+            <option value="oc_asc" selected="@(ViewBag.sort == "oc_asc")">Ocena rastuce</option>
+            <option value="oc_desc" selected="@(ViewBag.sort == "oc_desc")">Ocena opadajuce</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-danger w-100" type="submit">Trazi</button>
+    </div>
+</form>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-dark border-secondary">Nema rezultata.</div>
+}
+
+<div class="row g-4">
+@foreach (var f in Model)
+{
+    var slika = string.IsNullOrWhiteSpace(f.img) ? "https://placehold.co/600x800/1b1d24/ffffff?text=Film" : f.img;
+    <div class="col-sm-6 col-lg-4">
+        <div class="card-film">
+            <img src="@slika" alt="@f.naz" />
+            <div class="p-3">
+                <div class="d-flex justify-content-between gap-2">
+                    <h5 class="mb-1">@f.naz</h5>
+                    <span class="badge badge-tip align-self-start">@f.tip</span>
+                </div>
+                <div class="text-secondary small mb-2">@f.zanr | @f.god | ocena @f.oc</div>
+                <p class="text-light small">@f.opis</p>
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    <div class="d-flex gap-2">
+                        <a class="btn btn-outline-light btn-sm" asp-action="Edit" asp-route-id="@f.id">Edit</a>
+                        <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@f.id">Brisi</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+@if (ukupno > 1)
+{
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            @for (int i = 1; i <= ukupno; i++)
+            {
+                <li class="page-item @(i == p ? "active" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-p="@i" asp-route-q="@ViewBag.q" asp-route-zanr="@ViewBag.zanr" asp-route-sort="@ViewBag.sort">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

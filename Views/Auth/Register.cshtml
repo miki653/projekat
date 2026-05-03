@@ -1,0 +1,25 @@
+﻿@model Korisnik
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="auth-box">
+    <h1 class="h3 mb-3">Register</h1>
+    <form asp-action="Register" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+        <div class="mb-3">
+            <label asp-for="username" class="form-label">Korisnicko ime</label>
+            <input asp-for="username" class="form-control" />
+            <span asp-validation-for="username" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="password" class="form-label">Lozinka</label>
+            <input asp-for="password" class="form-control" />
+            <span asp-validation-for="password" class="text-danger"></span>
+        </div>
+        <button class="btn btn-danger" type="submit">Napravi nalog</button>
+        <a class="btn btn-outline-light" asp-action="Login">Login</a>
+    </form>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

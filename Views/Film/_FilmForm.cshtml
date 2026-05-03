@@ -1,0 +1,48 @@
+﻿@model Film
+
+<div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+<div class="mb-3">
+    <label asp-for="naz" class="form-label">Naziv</label>
+    <input asp-for="naz" class="form-control" />
+    <span asp-validation-for="naz" class="text-danger"></span>
+</div>
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label asp-for="zanr" class="form-label">Zanr</label>
+        <input asp-for="zanr" class="form-control" />
+        <span asp-validation-for="zanr" class="text-danger"></span>
+    </div>
+    <div class="col-md-3 mb-3">
+        <label asp-for="god" class="form-label">Godina</label>
+        <input asp-for="god" class="form-control" />
+        <span asp-validation-for="god" class="text-danger"></span>
+    </div>
+    <div class="col-md-3 mb-3">
+        <label asp-for="oc" class="form-label">Ocena</label>
+        <input asp-for="oc" class="form-control" />
+        <span asp-validation-for="oc" class="text-danger"></span>
+    </div>
+</div>
+<div class="mb-3">
+    <label asp-for="tip" class="form-label">Tip</label>
+    <select asp-for="tip" class="form-select">
+        <option value="film">film</option>
+        <option value="serija">serija</option>
+    </select>
+    <span asp-validation-for="tip" class="text-danger"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="opis" class="form-label">Opis</label>
+    <textarea asp-for="opis" class="form-control" rows="4"></textarea>
+    <span asp-validation-for="opis" class="text-danger"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="img" class="form-label">URL slike</label>
+    <input asp-for="img" class="form-control" />
+    <span asp-validation-for="img" class="text-danger"></span>
+</div>
+<div class="mb-3">
+    <label class="form-label">Upload slike</label>
+    <input type="file" name="slika" class="form-control" accept="image/*" />
+</div>

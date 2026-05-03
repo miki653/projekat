@@ -1,0 +1,14 @@
+﻿@model Film
+@{
+    ViewData["Title"] = "Brisanje";
+}
+
+<div class="panel">
+    <h1 class="h3">Brisanje</h1>
+    <p>Da li sigurno zelis da obrises <strong>@Model.naz</strong>?</p>
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="id" />
+        <button class="btn btn-danger" type="submit">Obrisi</button>
+        <a class="btn btn-outline-light" asp-action="Index">Odustani</a>
+    </form>
+</div>

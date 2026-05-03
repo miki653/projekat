@@ -1,0 +1,15 @@
+﻿@model Film
+@{
+    ViewData["Title"] = "Dodaj";
+}
+
+<div class="panel">
+    <h1 class="h3 mb-3">Dodaj film ili seriju</h1>
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <partial name="_FilmForm" model="Model" />
+        <button class="btn btn-danger" type="submit">Sacuvaj</button>
+        <a class="btn btn-outline-light" asp-action="Index">Nazad</a>
+    </form>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

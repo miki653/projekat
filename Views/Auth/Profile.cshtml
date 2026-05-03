@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Profil";
+}
+
+<div class="panel text-center">
+    <h1 class="h3">Profil</h1>
+    <p class="mb-1">Ulogovan korisnik:</p>
+    <h2 class="text-danger">@User.Identity?.Name</h2>
+    <a class="btn btn-outline-light mt-3" asp-controller="Film" asp-action="Index">Nazad na katalog</a>
+</div>

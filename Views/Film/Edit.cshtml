@@ -1,0 +1,16 @@
+﻿@model Film
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="panel">
+    <h1 class="h3 mb-3">Izmeni podatke</h1>
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="id" />
+        <partial name="_FilmForm" model="Model" />
+        <button class="btn btn-danger" type="submit">Sacuvaj</button>
+        <a class="btn btn-outline-light" asp-action="Index">Nazad</a>
+    </form>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }
